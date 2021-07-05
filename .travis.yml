@@ -2,6 +2,9 @@ os: linux
 arch: ppc64le
 distro: bionic
 
+before_script:
+  - python script.py
+
 jobs:
   include:
     - stage: Check PR
