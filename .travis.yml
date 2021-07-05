@@ -6,4 +6,6 @@ jobs:
   include:
     - stage: Check PR
       if: branch = main AND type = pull_request
-      script: echo "hello world PR made $TRAVIS_PULL_REQUEST"
+      script: 
+        - echo "hello world PR made $TRAVIS_PULL_REQUEST"
+        - curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/Rohan-Shinde-98/test-pr-files/pulls/${TRAVIS_PULL_REQUEST}/files
