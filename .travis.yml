@@ -1,0 +1,9 @@
+os: linux
+arch: ppc64le
+distro: bionic
+
+jobs:
+  include:
+    - stage: Check PR
+      if: branch = main AND type = pull_request
+      script: echo "hello world PR made $TRAVIS_PULL_REQUEST"
