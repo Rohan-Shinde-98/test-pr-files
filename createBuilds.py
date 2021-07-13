@@ -25,7 +25,7 @@ def triggerBuilds(file):
   }
   print(headers)
   response = requests.get("https://api.travis-ci.com/repo/travis-ci/travis-core/requests", data=body, headers=headers)
-  print(response.json())
+  print(response)
 
   
   
