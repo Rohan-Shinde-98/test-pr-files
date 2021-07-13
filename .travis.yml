@@ -15,5 +15,5 @@ jobs:
         - echo "$(<changed_files.txt)"
     - stage: Testing
       env:
-        - AUTH_TOKEN=${{ secrets.AUTH_TOKEN }}
+        - AUTH_TOKEN=$AUTH_TOKEN
       script: python3 createBuilds.py
