@@ -6,9 +6,8 @@ def getChangedFiles(TRAVIS_PULL_REQUEST):
 #   print(response.text)
   file = open('changed_files.txt','a')
   for object in response.json():
-    file.write(object['filename'] + " " + object['raw_url'])
-    print(object['filename'])
-    print(object['raw_url'])
+    string = object['filename'] + "\t" + object['raw_url']
+    file.write(string)
   file.close()
   file = open('changed_files.txt','r')
   print(file.read())
