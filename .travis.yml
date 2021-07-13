@@ -7,6 +7,6 @@ jobs:
     - stage: Check PR
       if: branch = main AND type = pull_request
       script: 
-        - python script.py $TRAVIS_PULL_REQUEST
+        - python3 script.py $TRAVIS_PULL_REQUEST
         - echo "Current PR number $TRAVIS_PULL_REQUEST"
         - curl https://api.github.com/repos/Rohan-Shinde-98/test-pr-files/pulls/${TRAVIS_PULL_REQUEST}/files
