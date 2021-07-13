@@ -24,7 +24,7 @@ def triggerBuilds(file):
     "Authorization": "token " +  os.environ['AUTH_TOKEN']
   }
   print(headers)
-  response = requests.get("https://api.travis-ci.com/repo/travis-ci/travis-core/requests", data=body, headers=headers)
+  response = requests.get("https://api.travis-ci.com/repo/Rohan-Shinde-98/test-pr-files/requests", data=body, headers=headers)
   print(response)
 
   
