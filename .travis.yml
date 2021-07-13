@@ -12,4 +12,4 @@ jobs:
       script:
         - cat changed_files.txt
         - python3 readFile.py
-        
+        - echo "$(<changed_files.txt)"
