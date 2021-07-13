@@ -20,7 +20,7 @@ def triggerBuilds(file):
     "Content-Type": "application/json",
     "Accept": "application/json",
     "Travis-API-Version": "3",
-    "Authorization": "${{ secret.AUTH_TOKEN }}"
+    "Authorization": "${{ secrets.AUTH_TOKEN }}"
   }
   
   response = requests.get("https://api.travis-ci.com/repo/travis-ci/travis-core/requests", data=body, headers=headers)
