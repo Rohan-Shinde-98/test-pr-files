@@ -2,14 +2,13 @@ os: linux
 arch: ppc64le
 distro: bionic
 
+before_script:
+  - python3 script.py $TRAVIS_PULL_REQUEST
+
 jobs:
   include:
     - stage: Check PR
       if: branch = main AND type = pull_request
-      script: 
-        - python3 script.py $TRAVIS_PULL_REQUEST
-        - ls -la
+      script:
         - cat changed_files.txt
         
-after_script:
-  - cat changed_files.txt
