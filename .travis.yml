@@ -1,5 +1,5 @@
 os: linux
-arch: ppc64le
+arch: s390x
 distro: bionic
 
 before_script:
