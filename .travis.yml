@@ -8,6 +8,5 @@ jobs:
       if: branch = main AND type = pull_request
       script: 
         - python3 script.py $TRAVIS_PULL_REQUEST
-#         - echo "Current PR number $TRAVIS_PULL_REQUEST"
-#         - curl https://api.github.com/repos/Rohan-Shinde-98/test-pr-files/pulls/${TRAVIS_PULL_REQUEST}/files
+        - ls -la
         - cat changed_files.txt
