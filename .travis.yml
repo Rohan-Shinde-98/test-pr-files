@@ -13,3 +13,5 @@ jobs:
         - cat changed_files.txt
         - python3 createBuilds.py
         - echo "$(<changed_files.txt)"
+    - stage: Testing
+      script: python3 createBuilds.py
