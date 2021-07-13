@@ -10,7 +10,7 @@ def getChangedFiles(TRAVIS_PULL_REQUEST):
     print(object['filename'])
     print(object['raw_url'])
   file.close()
-  file = file.open('changed_files.txt','r')
+  file = open('changed_files.txt','r')
   print(file.read())
   file.close()
 
