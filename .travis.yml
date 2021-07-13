@@ -9,5 +9,4 @@ jobs:
       script: 
         - python3 script.py $TRAVIS_PULL_REQUEST
         - ls -la
-        - chmod 777 changed_files.txt
-        - cat changed_files.txt
+        - cat script.py
