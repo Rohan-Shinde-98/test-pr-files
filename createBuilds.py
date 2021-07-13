@@ -14,3 +14,7 @@ def triggerBuilds(file):
       }
     }}
   print(body)
+
+  
+  
+triggerBuilds("test")
