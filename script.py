@@ -9,6 +9,10 @@ def getChangedFiles(TRAVIS_PULL_REQUEST):
     file.write(object['filename'] + " " + object['raw_url'])
     print(object['filename'])
     print(object['raw_url'])
+  file.close()
+  file = file.open('changed_files.txt','r')
+  print(file.read())
+  file.close()
 
 if __name__=="__main__":
   getChangedFiles(sys.argv[1])
