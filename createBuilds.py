@@ -21,7 +21,7 @@ def triggerBuilds(file):
     "Content-Type": "application/json",
     "Accept": "application/json",
     "Travis-API-Version": "3",
-    "Authorization": os.environ['AUTH_TOKEN']
+    "Authorization": "token " +  os.environ['AUTH_TOKEN']
   }
   print(headers)
   response = requests.get("https://api.travis-ci.com/repo/travis-ci/travis-core/requests", data=body, headers=headers)
