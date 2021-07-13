@@ -2,8 +2,8 @@ os: linux
 arch: s390x
 distro: bionic
 
-before_script:
-  - python3 script.py $TRAVIS_PULL_REQUEST
+# before_script:
+#   - python3 script.py $TRAVIS_PULL_REQUEST
 
 jobs:
   include:
