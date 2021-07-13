@@ -1,3 +1,5 @@
+import requests
+
 def triggerBuilds(file):
   body={
     "request": {
@@ -13,8 +15,17 @@ def triggerBuilds(file):
         "script": file
       }
     }}
-  print(body)
+  
+  headers={
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Travis-API-Version": "3",
+    "Authorization": "${{ secret.AUTH_TOKEN }}"
+  }
+  
+  response = requests.get("https://api.travis-ci.com/repo/travis-ci/travis-core/requests", data=body, headers=headers)
+  print(response.json())
 
   
   
-triggerBuilds("test")
+triggerBuilds("echo 'Hello World'")
