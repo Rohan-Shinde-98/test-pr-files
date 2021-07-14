@@ -1,5 +1,6 @@
 import requests
 import os
+import json
 
 def triggerBuilds(file):
   body={
@@ -24,7 +25,7 @@ def triggerBuilds(file):
     "Authorization": "token " +  os.environ['AUTH_TOKEN']
   }
   
-  response = requests.post("https://api.travis-ci.com/repo/Rohan-Shinde-98%2Ftest-pr-files/requests", data=body, headers=headers)
+  response = requests.post("https://api.travis-ci.com/repo/Rohan-Shinde-98%2Ftest-pr-files/requests", data=json.dumps(body)).text, headers=headers)
   print(response.text)
   
   
