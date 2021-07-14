@@ -6,7 +6,7 @@ def triggerBuilds(file):
     "request": {
     "message": "Override the commit message: this is an api request",
     "branch":"master",
-    "merge_mode": "deep_merge",
+    "merge_mode": "replace",
     "config": {
         "env": {
           "jobs": [
@@ -26,8 +26,6 @@ def triggerBuilds(file):
   print(headers)
   response = requests.post("https://api.travis-ci.com/repo/Rohan-Shinde-98%2Ftest-pr-files/requests", headers=headers)
   print(response.text)
-  print(response.json())
-
   
   
 triggerBuilds("echo 'Hello World'")
