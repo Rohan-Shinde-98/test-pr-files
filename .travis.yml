@@ -5,8 +5,6 @@ distro: bionic
 jobs:
   include:
     if: branch = main AND type = pull_request
-    - stage: Check PR
-      script: python3 script.py $TRAVIS_PULL_REQUEST
-      
-    - stage: Create Builds
-      script: python3 createBuilds.py
+    script: 
+      - python3 script.py $TRAVIS_PULL_REQUEST
+      - python3 createBuilds.py
