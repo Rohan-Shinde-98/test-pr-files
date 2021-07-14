@@ -2,20 +2,20 @@ import requests
 import os
 
 def triggerBuilds(file):
-#   body={
-#     "request": {
-#     "message": "Override the commit message: this is an api request",
-#     "branch":"master",
-#     "merge_mode": "deep_merge",
-#     "config": {
-#         "env": {
-#           "jobs": [
-#             "TEST=unit"
-#           ]
-#         },
-#         "script": "echo hello world"
-#       }
-#     }}
+  body={
+    "request": {
+    "message": "Override the commit message: this is an api request",
+    "branch":"master",
+    "merge_mode": "deep_merge",
+    "config": {
+        "env": {
+          "jobs": [
+            "TEST=unit"
+          ]
+        },
+        "script": "echo hello world"
+      }
+    }}
   
   headers={
     "Content-Type": "application/json",
@@ -25,7 +25,7 @@ def triggerBuilds(file):
   }
   print(headers)
   response = requests.get("https://api.travis-ci.com/repo/Rohan-Shinde-98%2Ftest-pr-files/requests", headers=headers)
-  print(response)
+  print(response.text)
 
   
   
