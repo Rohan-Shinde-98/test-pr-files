@@ -13,7 +13,7 @@ def triggerBuilds(file):
             "TEST=unit"
           ]
         },
-        "script": "echo hello world"
+        "script": "echo 'hello world'"
       }
     }}
   
