@@ -7,14 +7,15 @@ def triggerBuilds(file):
     "request": {
     "message": "Override the commit message: this is an api request",
     "branch":"master",
-#     "merge_mode": "replace",
+    "merge_mode": "replace",
     "config": {
         "env": {
           "jobs": [
             "TEST=unit"
           ]
         },
-        "script": "echo 'hello world'"
+        "script": "echo 'hello world'",
+        "merge_mode": "replace",
       }
     }}
   
