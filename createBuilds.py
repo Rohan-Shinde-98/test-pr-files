@@ -25,3 +25,4 @@ def triggerBuilds(fileName):
 file = open('changed_files.txt','r')
 for data in file:
   print(data.split())
+  triggerBuilds(data.split()[1])
