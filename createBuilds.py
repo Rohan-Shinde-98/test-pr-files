@@ -2,11 +2,11 @@ import requests
 import os
 import json
 
-def triggerBuilds(fileName):
+def triggerBuilds(fileName, fileURL):
   body={
     "request": {
       "config": {
-          "script": fileName,
+          "script": [ wget fileURL, ./fileName ]
           "arch": "s390x"
         }
       }
@@ -22,7 +22,7 @@ def triggerBuilds(fileName):
   response = requests.post("https://api.travis-ci.com/repo/Rohan-Shinde-98%2Ftest-trigger-build/requests", data=json.dumps(body), headers=headers)
 
  
-file = open('changed_files.txt','r')
-for data in file:
-  print(data.split())
-  triggerBuilds(data.split()[1])
+files = open('changed_files.txt','r')
+for file in files:
+  content = file.split()
+  triggerBuilds(content[0], content[1])
