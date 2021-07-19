@@ -12,7 +12,7 @@ def getChangedFiles(TRAVIS_PULL_REQUEST):
     
     #remove below lines
     string = object['filename'] + "\t" + object['raw_url']
-    print(object['filename'], object['raw_url']                                     
+    print(object['filename'], object['raw_url'])                       
     print(string)
     
     file.write(string)
