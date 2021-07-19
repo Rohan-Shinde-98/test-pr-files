@@ -7,7 +7,8 @@ def triggerBuilds(fileName):
   body={
     "request": {
       "config": {
-          "script": fileName
+          "script": fileName,
+          "arch": "s390x"
         }
       }
   }
