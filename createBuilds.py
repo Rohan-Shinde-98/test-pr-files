@@ -5,19 +5,11 @@ import json
 def triggerBuilds(file):
   body={
     "request": {
-    "message": "Override the commit message: this is an api request",
-    "branch":"master",
-#     "merge_mode": "replace",
-    "config": {
-        "env": {
-          "jobs": [
-            "TEST=unit"
-          ]
-        },
-        "script": "echo 'hello world'",
-        "merge_mode": "replace",
+      "config": {
+          "script": "echo 'hello world'"
+        }
       }
-    }}
+  }
   
   headers={
     "Content-Type": "application/json",
