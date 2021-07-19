@@ -24,4 +24,4 @@ def triggerBuilds(fileName):
  
 file = open('changed_files.txt','r')
 for data in file:
-  print(file)
+  print(data)
