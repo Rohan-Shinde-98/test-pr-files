@@ -9,7 +9,7 @@ def getChangedFiles(TRAVIS_PULL_REQUEST):
   
   file = open('changed_files.txt','a')
   for object in response.json():
-    string = object['filename'] + " " + object['raw_url']                  
+    string = object['filename'] + " " + object['raw_url'] +"\n"                 
     
     #remove below lines
     print(string)
