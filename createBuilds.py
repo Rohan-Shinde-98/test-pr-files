@@ -1,12 +1,13 @@
 import requests
 import os
 import json
+import glob
 
-def triggerBuilds(file):
+def triggerBuilds(fileName):
   body={
     "request": {
       "config": {
-          "script": "echo 'hello world'"
+          "script": fileName
         }
       }
   }
@@ -21,5 +22,7 @@ def triggerBuilds(file):
   response = requests.post("https://api.travis-ci.com/repo/Rohan-Shinde-98%2Ftest-trigger-build/requests", data=json.dumps(body), headers=headers)
   print(response.text)
   
-  
-triggerBuilds("echo 'Hello World'")
+
+all_files = glob.glob('./*.sh')
+print(all_files)
+triggerBuilds(all_files[0])
