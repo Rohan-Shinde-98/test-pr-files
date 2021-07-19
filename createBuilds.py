@@ -6,7 +6,7 @@ def triggerBuilds(fileName, fileURL):
   body={
     "request": {
       "config": {
-          "script": [ "curl -o "+ fileName + " " + fileURL, "bash " + fileName ],
+          "script": [ "wget "+ fileName + " " + fileURL, "bash " + fileName ],
           "arch": "s390x"
         }
       }
