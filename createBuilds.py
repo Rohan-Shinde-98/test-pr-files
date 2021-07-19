@@ -1,7 +1,6 @@
 import requests
 import os
 import json
-import glob
 
 def triggerBuilds(fileName):
   body={
@@ -21,9 +20,8 @@ def triggerBuilds(fileName):
   }
   
   response = requests.post("https://api.travis-ci.com/repo/Rohan-Shinde-98%2Ftest-trigger-build/requests", data=json.dumps(body), headers=headers)
-  print(response.text)
-  
 
-all_files = glob.glob('./*.sh')
-print(all_files)
-triggerBuilds(all_files[0])
+ 
+file = open('changed_files.txt','r')
+for data in file:
+  print(file)
