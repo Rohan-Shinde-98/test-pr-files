@@ -2,13 +2,16 @@
 arch: ppc64le
 distro: bionic
 os: linux
-script: 
 
-jobs: 
-  include: 
-    - 
-      if: "branch = main AND type = pull_request"
-      script: 
-        - "python3 script.py $TRAVIS_PULL_REQUEST"
-        - "python3 createBuilds.py"
-      stage: "test and build"
+# jobs: 
+#   include: 
+#     - 
+#       if: "branch = main AND type = pull_request"
+#       script: 
+#         - "python3 script.py $TRAVIS_PULL_REQUEST"
+#         - "python3 createBuilds.py"
+#       stage: "test and build"
+if: "branch = main AND type = pull_request"
+  script: 
+    - "python3 script.py $TRAVIS_PULL_REQUEST"
+    - "python3 createBuilds.py"
