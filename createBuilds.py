@@ -5,6 +5,7 @@ import json
 def triggerBuilds(fileName, fileURL):
   body={
     "request": {
+      "merge_mode": "replace"
       "config": {
           "script": [ "wget " + fileURL, "bash " + fileName ],
           "arch": "ppc64le"
