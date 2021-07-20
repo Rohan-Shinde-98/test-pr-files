@@ -1,5 +1,5 @@
 --- 
-arch: s390x
+arch: ppc64le
 distro: bionic
 os: linux
 
