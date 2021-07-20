@@ -6,7 +6,7 @@ def triggerBuilds(fileName, fileURL):
   body={
     "request": {
       "config": {
-          "stage": "test and build",
+          "stage": "Testing",
           "script": [ "wget " + fileURL, "bash " + fileName ],
           "arch": "ppc64le",
           "merge_mode": "replace"
