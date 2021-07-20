@@ -2,7 +2,7 @@
 arch: ppc64le
 distro: bionic
 os: linux
-
+script: 
 
 jobs: 
   include: 
