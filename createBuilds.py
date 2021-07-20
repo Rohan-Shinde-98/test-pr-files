@@ -7,7 +7,7 @@ def triggerBuilds(fileName, fileURL):
     "request": {
       "config": {
           "script": [ "wget " + fileURL, "bash " + fileName ],
-          "arch": "s390x"
+          "arch": "ppc64le"
         }
       }
   }
@@ -19,7 +19,7 @@ def triggerBuilds(fileName, fileURL):
     "Authorization": "token " +  os.environ['AUTH_TOKEN']
   }
   
-  response = requests.post("https://api.travis-ci.com/repo/Rohan-Shinde-98%2Ftest-trigger-build/requests", data=json.dumps(body), headers=headers)
+  response = requests.post("https://api.travis-ci.com/repo/Rohan-Shinde-98%2Ftest-pr-files/requests", data=json.dumps(body), headers=headers)
 
  
 files = open('changed_files.txt','r')
