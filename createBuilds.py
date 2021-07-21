@@ -2,6 +2,10 @@ import requests
 import os
 import json
 import threading
+from time import sleep
+
+# Holds the build status of each build triggered
+build_state = {}
 
 def triggerBuilds(fileName, fileURL):
   body={
@@ -22,9 +26,33 @@ def triggerBuilds(fileName, fileURL):
     "Authorization": "token " +  os.environ['AUTH_TOKEN']
   }
   
+  # Make a build request
   response = requests.post("https://api.travis-ci.com/repo/Rohan-Shinde-98%2Ftest-trigger-build/requests", data=json.dumps(body), headers=headers)
+  #get the response body
+  data = response.json()
+  # Get the request number to get the build info
+  request_no = data["request"]["id"]
 
-  # Polling
+  # Make a request to get the build numbers wait some time to spin up the build
+  sleep(10)
+  response = requests.get("https://api.travis-ci.com/repo/20274855/request/"+str(request_no),headers=headers)
+  #get the build number from the request number
+  build_number = response.json()["builds"][0]["id"]
+  
+  #Polling the build status
+  while True:
+    response = requests.get("https://api.travis-ci.com/build/"+str(build_number), headers=headers)
+    data = response.json()["state"]
+    if data == "failed" or data == "passed" or data == "canceled":
+      if build_number in build_state:
+        build_state[build_number] = data
+        break
+    sleep(10)
+    print("poling.........")
+    
+  print("polling done")
+  print(build_state)
+
   
 
 
