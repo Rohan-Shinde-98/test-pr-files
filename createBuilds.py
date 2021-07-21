@@ -32,6 +32,7 @@ def triggerBuilds(fileName, fileURL):
 build_threads = []
 
 file_content = open('changed_files.txt','r')
+print(file_content.read())
 for file in file_content:
   content = file.split()
   triggerBuilds(content[0], content[1])
