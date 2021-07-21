@@ -32,12 +32,23 @@ def triggerBuilds(fileName, fileURL):
   data = response.json()
   # Get the request number to get the build info
   request_no = data["request"]["id"]
+  
+  
+  print("Request Number : ",request_no)
+  print("Sleeping..............")
+  
 
   # Make a request to get the build numbers wait some time to spin up the build
   sleep(10)
-  response = requests.get("https://api.travis-ci.com/repo/20274855/request/"+str(request_no),headers=headers)
+  response = requests.get("https://api.travis-ci.com/repo/20274855/request/"+str(request_no),headers=headers)  
   #get the build number from the request number
   build_number = response.json()["builds"][0]["id"]
+  
+  
+  print("Build Number ", build_number)
+  print("Starting the polllll.....")
+  
+  
   
   #Polling the build status
   while True:
@@ -64,6 +75,7 @@ file_content = open('changed_files.txt','r')
 for file in file_content:
   content = file.split()
   triggerBuilds(content[0], content[1])
+  break
 
 #   # Create thread for each build
 #   t = threading.Thread(target=triggerBuilds, arg=[fileName,fileURL])
