@@ -3,6 +3,10 @@ arch: ppc64le
 distro: bionic
 os: linux
 
+env:
+  global:
+    TRAVIS_DEBUG_MODE=true
+
 jobs: 
   include: 
     - 
