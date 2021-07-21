@@ -38,15 +38,15 @@ def triggerBuilds(fileName, fileURL):
   print("Sleeping..............")
   
 
-  # Make a request to get the build numbers wait some time to spin up the build
-#   sleep(10)
-#   response = requests.get("https://api.travis-ci.com/repo/20274855/request/"+str(request_no),headers=headers)  
-#   #get the build number from the request number
-#   build_number = response.json()["builds"][0]["id"]
+#   Make a request to get the build numbers wait some time to spin up the build
+  sleep(10)
+  response = requests.get("https://api.travis-ci.com/repo/20274855/request/"+str(request_no),headers=headers)  
+  #get the build number from the request number
+  build_number = response.json()["builds"][0]["id"]
   
   
-#   print("Build Number ", build_number)
-#   print("Starting the polllll.....")
+  print("Build Number ", build_number)
+  print("Starting the polllll.....")
   
   
   
