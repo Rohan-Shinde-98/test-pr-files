@@ -50,19 +50,19 @@ def triggerBuilds(fileName, fileURL):
   
   
   
-#   #Polling the build status
-#   while True:
-#     response = requests.get("https://api.travis-ci.com/build/"+str(build_number), headers=headers)
-#     data = response.json()["state"]
-#     if data == "failed" or data == "passed" or data == "canceled":
-#       if build_number in build_state:
-#         build_state[build_number] = data
-#         break
-#     sleep(10)
-#     print("poling.........")
+  #Polling the build status
+  while True:
+    response = requests.get("https://api.travis-ci.com/build/"+str(build_number), headers=headers)
+    data = response.json()["state"]
+    if data == "failed" or data == "passed" or data == "canceled":
+      if build_number in build_state:
+        build_state[build_number] = data
+        break
+    sleep(10)
+    print("poling.........")
     
-#   print("polling done")
-#   print(build_state)
+  print("polling done")
+  print(build_state)
 
   
 
