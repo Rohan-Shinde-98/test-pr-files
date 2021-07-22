@@ -42,6 +42,7 @@ def triggerBuilds(fileName, fileURL, lock):
   sleep(10)
   response = requests.get("https://api.travis-ci.com/repo/20274855/request/"+str(request_no),headers=headers)  
   #get the build number from the request number
+  sleep(1)
   build_number = response.json()["builds"][0]["id"]
   
   
@@ -92,4 +93,4 @@ for thread in build_threads:
 
 file_content.close()
 
-print("Final Status of all running jobs.................................... ",build_status)
+print("Final Status of all running jobs.................................... ",build_state)
