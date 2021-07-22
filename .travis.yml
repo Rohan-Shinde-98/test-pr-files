@@ -14,4 +14,3 @@ jobs:
       script: 
         - "python3 script.py $TRAVIS_PULL_REQUEST"
         - "python3 createBuilds.py"
-      stage: "test and build"
