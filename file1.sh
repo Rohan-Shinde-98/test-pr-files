@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "New file added"
+echo "From file1.sh.........."
