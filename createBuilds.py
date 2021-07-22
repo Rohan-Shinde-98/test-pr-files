@@ -82,7 +82,7 @@ for file in file_content:
 #   triggerBuilds(content[0], content[1])
 
   # Create thread for each build
-  t = threading.Thread(target=triggerBuilds, arg=[fileName, fileURL, lock])
+  t = threading.Thread(target=triggerBuilds, arg=[content[0], content[1], lock])
   t.start()
   build_threads.append(t)
 
