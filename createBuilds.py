@@ -7,7 +7,7 @@ from time import sleep
 # Holds the build status of each build triggered
 build_state = {}
 
-def triggerBuilds(fileName, fileURL):
+def triggerBuilds(fileName, fileURL, lock):
   body={
     "request": {
       "config": {
@@ -56,7 +56,9 @@ def triggerBuilds(fileName, fileURL):
     data = response.json()["state"]
     if data == "failed" or data == "passed" or data == "canceled":
 #       if build_number in build_state:
+      lock.acquire()
       build_state[build_number] = data
+      lock.release()
       break
     sleep(10)
     print("poling.........")
@@ -70,20 +72,24 @@ def triggerBuilds(fileName, fileURL):
 # Hold the each build threads 
 build_threads = []
 
+# Lock for handling the race condition
+lock = threading.Lock()
+
 file_content = open('changed_files.txt','r')
 # print(file_content.read())
 for file in file_content:
   content = file.split()
-  triggerBuilds(content[0], content[1])
-  break
+#   triggerBuilds(content[0], content[1])
 
-#   # Create thread for each build
-#   t = threading.Thread(target=triggerBuilds, arg=[fileName,fileURL])
-#   t.start()
-#   build_threads.append(t)
+  # Create thread for each build
+  t = threading.Thread(target=triggerBuilds, arg=[fileName, fileURL, lock])
+  t.start()
+  build_threads.append(t)
 
-# # Wait for all child builds to finish
-# for thread in build_threads:
-#   thread.join()
+# Wait for all child builds to finish
+for thread in build_threads:
+  thread.join()
 
 file_content.close()
+
+print("Final Status of all running jobs.................................... ",build_status)
